@@ -76,7 +76,7 @@ public static class L
     {
         var code = Environment.GetEnvironmentVariable("CHESTCOUNTER_LANG") is { Length: > 0 } forced
             ? forced
-            : CultureInfo.CurrentUICulture.TwoLetterISOLanguageName;
+            : "en"; // fork: English by default; other languages can still be chosen in Settings
         code = code.Length >= 2 ? code[..2].ToLowerInvariant() : "";
         return Array.IndexOf(Supported, code) >= 0 ? code : "en";
     }
